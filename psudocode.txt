@@ -1,0 +1,17 @@
+if break is up
+send notification
+move to work
+
+
+if work is up
+send notification
+move to break
+
+
+
+
+code for content script
+	"content_scripts": {
+		"matches": [https://*.*.*]
+		"js": ["content-script.js"]
+	},

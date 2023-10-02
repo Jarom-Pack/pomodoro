@@ -1,0 +1,16 @@
+{
+	"manifest_version": 3,
+	"name": "Pomodoro Extension but the real one",
+	"description": "A pomodoro extension with: a timer, and stuff.",
+	"version": "0.1",
+	"background":{
+		"service_worker": "background.js"
+	},
+	"action": {
+		"default_popup": "popup.html"
+    },
+ "icons": {
+    "32": "32.png"
+  },
+	"permissions": ["scripting", "activeTab","tabGroups", "storage", "notifications"]
+}
