@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
-	"name": "Pomodoro Extension but the real one",
-	"description": "A pomodoro extension with: a timer, and stuff.",
+	"name": "Pomodoro",
+	"description": "A pomodoro extension with a timer that switches between 15 minutes of work, and 5 minutes of break.",
 	"version": "0.1",
 	"background":{
 		"service_worker": "background.js"
@@ -12,5 +12,5 @@
  "icons": {
     "32": "32.png"
   },
-	"permissions": ["scripting", "activeTab","tabGroups", "storage", "notifications"]
+	"permissions": ["scripting", "storage", "notifications"]
 }

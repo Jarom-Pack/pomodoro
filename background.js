@@ -1,8 +1,7 @@
-// IMPORTANT WARNING: I HAVE NOT TESTED THIS. MAY NOT WORK PROPERLY LOL (it works fine except our errors as we add on to it)
 var pausedValue = false; // false: unpaused, true: paused
 var breaks = false; // false: work, true: break. Previously breakOrWork
-const workData = {time: 15, note: "workUpNote", type: "Work"};
-const breakData = {time: 5, note: "breakUpdate", type: "Break"};
+const workData = {time: 15*60, note: "workUpNote", type: "Work"};
+const breakData = {time: 5*60, note: "breakUpdate", type: "Break"};
 var timer = workData.time; // breakData holds workData's timer because when you're on breakData it's counting down for workData.
 
 //listen for message
@@ -25,7 +24,7 @@ function timer_function() {
             timer = data_take.time;
 
             chrome.notifications.create(
-                data_take.note,
+                data_take.note, // this is a comment
                 {
                     type: "basic",
                     iconUrl: "32.png",
