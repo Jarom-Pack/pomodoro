@@ -43,4 +43,3 @@ function sendPauseMessage() {
 
 
 pauseButtonLocation.addEventListener("click", sendPauseMessage);
-

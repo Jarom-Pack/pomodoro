@@ -12,5 +12,16 @@
  "icons": {
     "32": "32.png"
   },
-	"permissions": ["scripting", "storage", "notifications"]
+	"permissions": ["scripting", "storage", "notifications","webRequest"
+	
+],
+"host_permissions": [
+ "<all_urls>"
+],
+ "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"]
+    }
+  ]
 }
