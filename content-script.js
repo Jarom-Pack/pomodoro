@@ -24,7 +24,7 @@ const code = `
 </html>
 `;
 
-const matches = ["twitter.com", "facebook.com", "youtube.com","reddit.com"];
+const matches = ["twitter.com", "facebook.com", "youtube.com","google.com","reddit.com"];
 
 
 function replaceContent() {
