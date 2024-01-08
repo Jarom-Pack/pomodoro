@@ -1,4 +1,10 @@
-This is an extension meant to help people with a time-management system called the "pomodoro technique", where you switch between work and break timers.
+This is an extension meant to help people with a time-management system called the "pomodoro technique", where you switch between work and short break timers to help you:
+
+-Manage distractions and control your time
+
+-Maintain motivation
+
+-Decrease mental fatigue
 
 (For more information on the pomodoro system, read this article: https://en.wikipedia.org/wiki/Pomodoro_Technique)
 
