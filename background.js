@@ -1,11 +1,13 @@
 var pausedValue = false; // false: unpaused, true: paused
-var breaks = true; // false: work, true: break. Previously breakOrWork
+var breaks = false; // false: work, true: break. Previously breakOrWork
 
 //changed these 'const's to 'let's because we need to update them.
-let workData = {time: 5, note: "workUpNote", type: "Work"}; //5*60 is the seconds to 5 minutes
-let breakData = {time: 15, note: "breakUpdate", type: "Break"}; 
+let workData = {time: 5*60, note: "workUpNote", type: "Work"}; //5*60 is the seconds to 5 minutes
+let breakData = {time: 15*60, note: "breakUpdate", type: "Break"}; 
 
 var timer = breakData.time; // breakData holds workData's timer because when you're on breakData it's counting down for workData.
+
+var toSubtract = 0; // toAdd holds the amount of seconds to remove when handling updation
 
 //listen for message
 // In background.js
@@ -15,17 +17,49 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         console.log("Message received in background.js: Paused Value = " + pausedValue);
     }
 
-    // get update data, change workData and breakData accordingly. Change timer accordingly?
+    // get update data, change workData and breakData accordingly. Change timer accordingly.
+
     if (message.updateDataBreak != undefined) { //check for break time's change
-        workData.time = message.updateDataBreak*60;
-        console.log("GOT Break data stuff"+message.updateDataBreak)
+
+
+        if (breaks == true && workData.time != message.updateDataBreak){ // if the current timer is the one we want and the one we want to change is the same :
+            toSubtract = (workData.time-timer) //get difference in timer,
+            
+            workData.time = message.updateDataBreak*60; //update max timer,
+            
+            if ((timer - toSubtract) > 0) { //check if we can subtract from the timer, and if so
+                timer = workData.time - toSubtract; //set timer and subtract from the timer
+            }else{
+                time = workData.time; //otherwise, just set the timer
+            }
+        }else{
+            workData.time = message.updateDataBreak*60;
+        }
     }
+
+    //same as the one above, but for the work data
     if (message.updateDataWork != undefined){
-        console.log("got work data stufsf:"+message.updateDataWork)
-        breakData.time = message.updateDataBreak*60; 
+        
+
+        if(breaks == false && breakData.time != message.updateDataWork*60){
+            toSubtract = (breakData.time-timer)
+
+            breakData.time = message.updateDataWork*60; 
+
+
+            if ((timer - toSubtract) > 0) {
+                timer = breakData.time - toSubtract;
+            }else{
+                timer = breakData.time;
+            }
+        }else{
+            breakData.time = message.updateDataWork*60;
+        }
     }
     
 });
+
+
 
 function timer_function() {
     if (!pausedValue) {
@@ -47,15 +81,16 @@ function timer_function() {
                 }
             );
             chrome.notifications.clear(data_take.note);
+            chrome.runtime.sendMessage({onBreak: breaks})
         }
     }
 
 }
 
 //send timer to the popup.js
-// Modify the sendMessages function in background.js
+// Modify the sendMessages function in background.js  
 function sendMessages() {
-    // const activeTimerData = {
+    // const activeTimerData = { a
     //     activeTimer: breaks ? "Break" : "Work",
     //     timer: timer 
     // }; 
@@ -63,8 +98,12 @@ function sendMessages() {
     // send current list of tabs to the sendInfoToTabs function "sometime soon"
     chrome.tabs.query({}, sendInfoToTabs);    
 
-    chrome.runtime.sendMessage({ timer: timer }); 
-    chrome.runtime.sendMessage({ currentPausedValue: pausedValue }); 
+    chrome.runtime.sendMessage({ 
+        timer: timer, 
+        currentPausedValue: pausedValue,
+        onBreak: breaks
+    }); 
+
     //console.log("SENT MESSAGES I THINK")
 }
 

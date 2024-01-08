@@ -14,6 +14,8 @@ var workTimeChangeLocation = document.getElementById("work_time_change");
 var getUpdateButtonLocation = document.getElementById("update_button");
 
 
+var getCurrentTimer = document.getElementById("current_timer");
+
 chrome.runtime.onMessage.addListener((message,sender,sendResponse) => {
     if(message.timer){
         timerValue = message.timer;
@@ -34,6 +36,15 @@ chrome.runtime.onMessage.addListener((message,sender,sendResponse) => {
     if(message.currentPausedValue){
         paused = message.currentPausedValue;
         if(paused) pauseButtonLocationForUn.textContent = "un"; else pauseButtonLocationForUn.textContent = " "; // when popup is opened, automatically change button to unpause/pause
+    }
+
+    if(message.onBreak != undefined){
+        if(message.onBreak == true){
+            getCurrentTimer.textContent = "Break Timer"
+        }
+        else if(message.onBreak == false){
+            getCurrentTimer.textContent = "Work Timer"
+        }
     }
 
 });
