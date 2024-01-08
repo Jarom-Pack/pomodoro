@@ -16,4 +16,9 @@ body{
 #timerLocation{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 35px;
+    border: 1px solid;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 15px;
+    background-color:#92c3fa;
 }

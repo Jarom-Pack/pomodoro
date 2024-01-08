@@ -1,11 +1,17 @@
 // this is real 
 var timerValue;
 var paused = false;
+// get lots of locations
 
 var timerLocation = document.getElementById("timerLocation");
 var pauseButtonLocation = document.getElementById("pauseButton");
 var pauseButtonLocationForUn = document.getElementById("put_un_here");
 
+
+var breakTimeChangeLocation = document.getElementById("break_time_change");
+var workTimeChangeLocation = document.getElementById("work_time_change");
+
+var getUpdateButtonLocation = document.getElementById("update_button");
 
 
 chrome.runtime.onMessage.addListener((message,sender,sendResponse) => {
@@ -43,3 +49,23 @@ function sendPauseMessage() {
 
 
 pauseButtonLocation.addEventListener("click", sendPauseMessage);
+
+
+
+
+
+
+// update button stuff
+
+//if (getUpdateButtonLocation) {
+getUpdateButtonLocation.addEventListener("click", function () {
+        // send message to background about the change: the values of the break/work update locations
+
+    chrome.runtime.sendMessage({
+        updateDataBreak: breakTimeChangeLocation.value,
+        updateDataWork: workTimeChangeLocation.value
+    });
+
+    console.log("Sent the junk");
+});
+//}

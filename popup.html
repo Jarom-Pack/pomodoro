@@ -1,15 +1,40 @@
-<DOCTYPE! html>
 <html>
-	<head>
-		<title>Popup</title>
-		<link rel="stylesheet" type="text/css" href="popup.css" />
-	</head>
-	<body>
-		<center>
-		<div id="mainBodyDiv">
-			<span id="timerLocation">0</span><br/>
-			<button id="pauseButton"><span id="put_un_here"></span>pause</button>
-			<script src="popup.js"></script>
-		</div>
-	</body>
+  <head>
+    <title>Popup</title>
+    <link rel="stylesheet" type="text/css" href="popup.css" />
+  </head>
+  <body>
+    <center>
+      <div id="mainBodyDiv">
+        <span id="timerLocation">0</span><br /><br />
+        <button id="pauseButton"><span id="put_un_here"></span>pause</button>
+        <br /><br />
+        Break Time:
+        <input
+          type="number"
+          value="5"
+          min="2"
+          max="10"
+          step="1"
+          id="break_time_change"
+        />
+        Minutes
+        <br />
+        Work Time:
+        <input
+          type="number"
+          value="15"
+          min="10"
+          max="30"
+          step="1"
+          id="work_time_change"
+        />
+        Minutes
+
+        <br /><br />
+        <button id="update_button">UPDATE</button>
+      </div>
+    </center>
+    <script src="popup.js"></script>
+  </body>
 </html>

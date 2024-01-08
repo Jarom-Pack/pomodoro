@@ -12,7 +12,7 @@
  "icons": {
     "32": "32.png"
   },
-	"permissions": ["scripting", "storage", "notifications","webRequest"
+	"permissions": ["scripting", "storage", "notifications","webRequest", "tabs", "activeTab"
 	
 ],
 "host_permissions": [
