@@ -20,7 +20,7 @@ const code = `
 </html>
 `;
 
-const matches = ["twitter.com", "facebook.com", "youtube.com","reddit.com"];
+const matches = ["twitter.com", "facebook.com", "youtube.com","reddit.com","snapchat.com","pinterest.com","instagram.com","linkedin.com","tiktok.com"];
 var currentTimer;
 
 // Listen for messages from the background script

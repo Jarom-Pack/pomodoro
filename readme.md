@@ -8,6 +8,8 @@ When the timer goes off, it will give you a notification.
 
 While it's on the work timer, it will block popular social media sites.
 
+"Wow, that is amazing!" -ChatGPT
+
 Copyright © 2024 Jarom and Joseph Pack.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
