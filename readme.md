@@ -1,8 +1,12 @@
-This is an extension meant to help people with a time-management system called the "pomodoro technique".
+This is an extension meant to help people with a time-management system called the "pomodoro technique", where you switch between work and break timers.
+
 (For more information on the pomodoro system, read this article: https://en.wikipedia.org/wiki/Pomodoro_Technique)
 
 load in the extension files and then click on the extension in the top-right to access the timer and change things.
+
 When the timer goes off, it will give you a notification.
+
+While it's on the work timer, it will block popular social media sites.
 
 Copyright © 2024 Jarom and Joseph Pack.
 
