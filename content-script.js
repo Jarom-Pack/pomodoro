@@ -41,7 +41,7 @@ console.log("Listener is set up");
 // Function to replace content if necessary
 function replaceContent() {
     // Check if the current URL includes any of the strings in the matches array
-    if (matches.some(match => window.location.href.includes(match)) && currentTimer == true) {
+    if (matches.some(match => window.location.href.includes(match)) && currentTimer == false) {
         document.documentElement.innerHTML = code;
     }
     setTimeout(replaceContent, 1000);
